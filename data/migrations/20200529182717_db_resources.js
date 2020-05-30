@@ -4,7 +4,7 @@ exports.up = function(knex, Promise) {
         tbl.increments();
         tbl.text('name', 128).notNullable();
         tbl.text('description', 128);
-        tbl.integer('project_id', 128).unique().notNullable();
+        tbl.integer('project_id', 128).notNullable();
     })
   
 };
