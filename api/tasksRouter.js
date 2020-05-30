@@ -29,8 +29,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const fruitData = req.body;
-  db('tasks').insert(fruitData)
+  const tasksData = req.body;
+  db('tasks').insert(tasksData)
   .then(ids => {
     db('tasks').where({ id: ids[0] })
     .then(newTasks => {

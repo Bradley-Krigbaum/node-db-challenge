@@ -29,8 +29,8 @@ router.get('/:id', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-  const fruitData = req.body;
-  db('projects').insert(fruitData)
+  const projectData = req.body;
+  db('projects').insert(projectData)
   .then(ids => {
     db('projects').where({ id: ids[0] })
     .then(newProject => {
@@ -38,7 +38,7 @@ router.post('/', (req, res) => {
     });
   })
   .catch (error => {
-    console.log('POST error', err);
+    console.log('POST error', error);
     res.status(500).json({ message: "Failed to store data", error });
   });
 });
